@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChatApp.Frontend.Views.ChatsPage"
+             Title="Chats"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Background>
+        <RadialGradientBrush Center="0.5,0" Radius="1.2">
+            <GradientStop Color="{StaticResource AuraDarkBgTop}" Offset="0.0" />
+            <GradientStop Color="{StaticResource AuraDarkBg}" Offset="1.0" />
+        </RadialGradientBrush>
+    </ContentPage.Background>
+
+    <Grid RowDefinitions="Auto, *, Auto">
+        
+        <!-- Header -->
+        <Grid Grid.Row="0" RowDefinitions="Auto, Auto" Padding="20, 40, 20, 10">
+            <!-- Top Bar -->
+            <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto, Auto" ColumnSpacing="15" Margin="0,0,0,20">
+                <HorizontalStackLayout Grid.Column="0" Spacing="10" VerticalOptions="Center">
+                    <Border Background="{StaticResource AuraPurple}" StrokeThickness="0" HeightRequest="30" WidthRequest="30" Padding="0">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="15" /></Border.StrokeShape>
+                        <Border.Shadow>
+                            <Shadow Brush="Black" Offset="0,2" Radius="3" Opacity="0.5"/>
+                        </Border.Shadow>
+                        <Label Text="N" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    </Border>
+                    <Label Text="Nexa" FontSize="20" FontAttributes="Bold" TextColor="White" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+                
+                <!-- Search Bar (Glassmorphism) -->
+                <Border Grid.Column="1" Stroke="{StaticResource AuraGlassStrokeBrush}" Background="{StaticResource AuraGlassBgBrush}" StrokeThickness="1" HeightRequest="40">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20" />
+                    </Border.StrokeShape>
+                    <HorizontalStackLayout Padding="15,0" Spacing="10" VerticalOptions="Center">
+                        <!-- Search Icon SVG Path -->
+                        <Path Data="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" 
+                              Fill="{StaticResource AuraTextMuted}" 
+                              HorizontalOptions="Center" VerticalOptions="Center" 
+                              Scale="0.8"/>
+                        <Label Text="Search chats..." TextColor="{StaticResource AuraTextMuted}" VerticalOptions="Center"/>
+                    </HorizontalStackLayout>
+                </Border>
+
+                <!-- Settings Icon SVG Path -->
+                <Border Grid.Column="2" Stroke="{StaticResource AuraGlassStrokeBrush}" Background="{StaticResource AuraGlassBgBrush}" StrokeThickness="1" HeightRequest="40" WidthRequest="40">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                    <Path Data="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.06-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.73 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.06.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .43-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.49-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" 
+                          Fill="White" 
+                          HorizontalOptions="Center" VerticalOptions="Center" 
+                          Scale="0.7"/>
+                </Border>
+                
+                <!-- Add Icon SVG Path -->
+                <Border Grid.Column="3" Stroke="{StaticResource AuraGlassStrokeBrush}" Background="{StaticResource AuraGlassBgBrush}" StrokeThickness="1" HeightRequest="40" WidthRequest="40">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                    <Path Data="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" 
+                          Fill="White" 
+                          HorizontalOptions="Center" VerticalOptions="Center" />
+                </Border>
+            </Grid>
+            
+            <!-- Title -->
+            <Grid Grid.Row="1" ColumnDefinitions="*, Auto">
+                <Label Grid.Column="0" Text="CHATS" FontSize="28" FontAttributes="Bold" TextColor="White" />
+                <Border Grid.Column="1" Stroke="{StaticResource AuraGlassStrokeBrush}" Background="#33ffffff" StrokeThickness="1" Padding="15,5">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="15" /></Border.StrokeShape>
+                    <Label Text="New Chat" TextColor="#e2e8f0" FontSize="12" FontAttributes="Bold"/>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!-- CollectionView with UI Virtualization -->
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Chats}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <ContentView Padding="20,5">
+                        <Border Stroke="{StaticResource AuraGlassStrokeBrush}" Background="#0affffff" StrokeThickness="1" Padding="15">
+                            <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                            <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="15">
+                                <Grid Grid.Column="0">
+                                    <Ellipse Fill="#334155" WidthRequest="50" HeightRequest="50"/>
+                                    <Label Text="{Binding AvatarInitials}" TextColor="White" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Ellipse WidthRequest="12" HeightRequest="12" Fill="{StaticResource AuraGreenOnline}" HorizontalOptions="End" VerticalOptions="End" IsVisible="{Binding IsOnline}"/>
+                                </Grid>
+                                
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                    <Label Text="{Binding Name}" TextColor="White" FontAttributes="Bold" FontSize="16"/>
+                                    <Label Text="{Binding LastMessage}" TextColor="{StaticResource AuraTextMuted}" FontSize="13" LineBreakMode="TailTruncation"/>
+                                </VerticalStackLayout>
+                                
+                                <VerticalStackLayout Grid.Column="2" HorizontalOptions="End" Spacing="5">
+                                    <Label Text="{Binding TimeAgo}" TextColor="#64748b" FontSize="11"/>
+                                    <Border Background="{StaticResource AuraBlue}" StrokeThickness="0" WidthRequest="20" HeightRequest="20" HorizontalOptions="End" IsVisible="{Binding HasUnread}">
+                                        <Border.StrokeShape><RoundRectangle CornerRadius="10"/></Border.StrokeShape>
+                                        <Label Text="{Binding UnreadCount}" TextColor="White" FontSize="10" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    </Border>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </ContentView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Bottom Navigation (Translucent) -->
+        <Border Grid.Row="2" 
+                Background="#cc020617" 
+                Stroke="{StaticResource AuraGlassStrokeBrush}" 
+                StrokeThickness="1"
+                Margin="0"
+                Padding="0,15,0,25">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="30,30,0,0" />
+            </Border.StrokeShape>
+            
+            <Grid ColumnDefinitions="*, *, *, *, *">
+                <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="5">
+                    <Path Data="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" Fill="{StaticResource AuraCyanBrush}" Scale="0.8" HorizontalOptions="Center"/>
+                    <Label Text="Chats" TextColor="{StaticResource AuraCyan}" FontSize="10" FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <BoxView HeightRequest="2" WidthRequest="20" Color="{StaticResource AuraCyan}" CornerRadius="1" Margin="0,2,0,0">
+                         <BoxView.Shadow><Shadow Brush="{StaticResource AuraCyanBrush}" Radius="5" Opacity="1"/></BoxView.Shadow>
+                    </BoxView>
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="5" Opacity="0.5">
+                    <Path Data="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" Fill="White" Scale="0.8" HorizontalOptions="Center"/>
+                    <Label Text="Contacts" TextColor="White" FontSize="10" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="5" Opacity="0.5">
+                    <Path Data="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 1.01-.63 1.01-1.18v-3.45c0-.54-.45-.99-.99-.99z" Fill="White" Scale="0.8" HorizontalOptions="Center"/>
+                    <Label Text="Calls" TextColor="White" FontSize="10" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+                
+                <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center" Spacing="5" Opacity="0.5">
+                    <Path Data="M12 10.9c-.61 0-1.1.49-1.1 1.1s.49 1.1 1.1 1.1c.61 0 1.1-.49 1.1-1.1s-.49-1.1-1.1-1.1zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm2.19 12.19L6 18l3.81-8.19L18 6l-3.81 8.19z" Fill="White" Scale="0.8" HorizontalOptions="Center"/>
+                    <Label Text="Discover" TextColor="White" FontSize="10" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Column="4" HorizontalOptions="Center" Spacing="5" Opacity="0.5">
+                    <Path Data="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" Fill="White" Scale="0.8" HorizontalOptions="Center"/>
+                    <Label Text="Profile" TextColor="White" FontSize="10" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+        </Border>
+
+    </Grid>
+</ContentPage>

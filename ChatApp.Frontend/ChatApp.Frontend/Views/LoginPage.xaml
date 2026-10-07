@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChatApp.Frontend.Views.LoginPage"
+             Title="Login"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Background>
+        <RadialGradientBrush Center="0.5,0.5" Radius="0.8">
+            <GradientStop Color="#0f172a" Offset="0.1" />
+            <GradientStop Color="#020617" Offset="1.0" />
+        </RadialGradientBrush>
+    </ContentPage.Background>
+
+    <Grid RowDefinitions="Auto, *" Padding="30, 60, 30, 40">
+        
+        <!-- Logo Area -->
+        <VerticalStackLayout Grid.Row="0" HorizontalOptions="Center" Spacing="5" Margin="0,0,0,20">
+            <Label Text="AURA" 
+                   FontSize="42" 
+                   FontAttributes="Bold" 
+                   TextColor="#00f2fe" 
+                   HorizontalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Brush="#00f2fe" Offset="0,0" Radius="10" Opacity="0.8"/>
+                </Label.Shadow>
+            </Label>
+            <Label Text="MESSAGING" 
+                   FontSize="14" 
+                   CharacterSpacing="3" 
+                   TextColor="#94a3b8" 
+                   HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <!-- Glassmorphism Login Form -->
+        <Border Grid.Row="1" 
+                Stroke="#33ffffff" 
+                StrokeThickness="1" 
+                Background="#1affffff"
+                HorizontalOptions="Center" 
+                VerticalOptions="Center"
+                WidthRequest="320" 
+                Padding="25">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20" />
+            </Border.StrokeShape>
+            
+            <VerticalStackLayout Spacing="25">
+                
+                <!-- Avatar Ring -->
+                <Grid WidthRequest="100" HeightRequest="100" HorizontalOptions="Center" Margin="0,0,0,10">
+                    <Ellipse Stroke="#a855f7" StrokeThickness="2" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Center">
+                         <Ellipse.Shadow>
+                            <Shadow Brush="#a855f7" Offset="0,0" Radius="10" Opacity="0.8"/>
+                        </Ellipse.Shadow>
+                    </Ellipse>
+                    <Ellipse Stroke="#00f2fe" StrokeThickness="1" WidthRequest="85" HeightRequest="85" HorizontalOptions="Center" VerticalOptions="Center"/>
+                    <Image Source="dotnet_bot.png" WidthRequest="50" HeightRequest="50" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" />
+                </Grid>
+
+                <Label Text="IDENTITY VERIFICATION" FontSize="12" TextColor="#94a3b8" HorizontalOptions="Center" CharacterSpacing="2"/>
+                
+                <!-- Email Input -->
+                <Border Stroke="#33ffffff" StrokeThickness="1" Background="#1affffff" HeightRequest="50">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="25" /></Border.StrokeShape>
+                    <Entry x:Name="EmailEntry" Placeholder="Username" PlaceholderColor="#64748b" TextColor="White" VerticalOptions="Center" Margin="20,0"/>
+                </Border>
+                
+                <!-- Password Input -->
+                <Border Stroke="#33ffffff" StrokeThickness="1" Background="#1affffff" HeightRequest="50">
+                    <Border.StrokeShape><RoundRectangle CornerRadius="25" /></Border.StrokeShape>
+                    <Entry x:Name="PasswordEntry" Placeholder="Password" IsPassword="True" PlaceholderColor="#64748b" TextColor="White" VerticalOptions="Center" Margin="20,0"/>
+                </Border>
+                
+                <!-- Authenticate Button -->
+                <Button x:Name="LoginButton"
+                        Text="Authenticate"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        HeightRequest="50"
+                        CornerRadius="25"
+                        Margin="0,15,0,0">
+                     <Button.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#00f2fe" Offset="0.0" />
+                            <GradientStop Color="#0ea5e9" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                     <Button.Shadow>
+                        <Shadow Brush="#00f2fe" Offset="0,0" Radius="8" Opacity="0.8"/>
+                    </Button.Shadow>
+                </Button>
+                
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentPage>
