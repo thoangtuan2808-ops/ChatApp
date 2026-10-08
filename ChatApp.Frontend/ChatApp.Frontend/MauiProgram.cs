@@ -24,6 +24,8 @@ namespace ChatApp.Frontend
             builder.Services.AddSingleton<UserStateService>();
             builder.Services.AddTransient<Views.LoginPage>();
             builder.Services.AddTransient<Views.ChatsPage>();
+            builder.Services.AddTransient<Views.ProfilePage>();
+            builder.Services.AddTransient<Views.ChatRoomPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();
